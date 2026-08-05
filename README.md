@@ -52,8 +52,7 @@ brew uninstall --cask acp-control-center
 
 ## Security notes
 
-- Releases are currently **unsigned** (no Developer ID certificate yet — pending
-  Apple Developer Account Holder).
+- Releases are currently **unsigned** (no Developer ID certificate yet).
 - Verify integrity before trusting the binary:
   - Compare the `sha256` in `Casks/acp-control-center.rb` with the one published
     on the [GitHub Release](https://github.com/IDN-Media/acp-control-center/releases)
