@@ -1,11 +1,22 @@
 # IDN-Media Homebrew Tap
 
-Homebrew tap for IDN Media macOS software.
+Homebrew tap for IDN Media macOS software — install apps with a single command
+instead of downloading ZIPs manually.
 
 ## Usage
 
+> **Current state**: `acp-control-center` is an **unsigned build** (no Developer
+> ID certificate yet). While that is the case, install with `--no-quarantine`
+> to skip the Gatekeeper prompt:
+
 ```bash
 brew tap IDN-Media/tap
+brew install --cask --no-quarantine acp-control-center
+```
+
+Once releases are signed + notarized, the plain command works too:
+
+```bash
 brew install --cask acp-control-center
 ```
 
@@ -16,21 +27,28 @@ brew update
 brew upgrade --cask acp-control-center
 ```
 
-> **Unsigned build**: while releases are unsigned (no Developer ID certificate
-> yet), install with `--no-quarantine` to skip the Gatekeeper prompt:
->
-> ```bash
-> brew install --cask --no-quarantine acp-control-center
-> ```
->
-> This is an explicit per-install opt-out — Homebrew 6 no longer lets the cask
-> disable quarantine itself.
+To uninstall:
+
+```bash
+brew uninstall --cask acp-control-center
+```
+
+## Requirements
+
+- macOS 14 or later
+- [Homebrew](https://brew.sh)
 
 ## Available casks
 
 | Cask | Description |
 |---|---|
 | `acp-control-center` | Menu bar utility for the Agent Client Protocol (ACP) with Kiro CLI integration |
+
+## How this tap works
+
+- The repository is named `homebrew-tap`, so Homebrew exposes it as `IDN-Media/tap`.
+- Each cask is a small Ruby file pointing at a published ZIP on the project's
+  GitHub Releases page (version + sha256 pinned). No binaries are stored here.
 
 ## Security notes
 
