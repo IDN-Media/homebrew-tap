@@ -5,20 +5,18 @@ instead of downloading ZIPs manually.
 
 ## Usage
 
-> **Current state**: `acp-control-center` is an **unsigned build** (no Developer
-> ID certificate yet). While that is the case, install with `--no-quarantine`
-> to skip the Gatekeeper prompt:
-
 ```bash
 brew tap IDN-Media/tap
-brew install --cask --no-quarantine acp-control-center
-```
-
-Once releases are signed + notarized, the plain command works too:
-
-```bash
 brew install --cask acp-control-center
 ```
+
+> **Note for unsigned builds**: the app may be blocked by Gatekeeper on first
+> launch because the download carries a `com.apple.provenance` attribute.
+> If that happens, run once:
+>
+> ```bash
+> xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
+> ```
 
 To update later:
 

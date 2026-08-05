@@ -12,9 +12,10 @@ cask "acp-control-center" do
     strategy :github_latest
   end
 
-  # Unsigned build (no Developer ID certificate yet). Homebrew 6 removed the
-  # `quarantine` cask directive, so install with `--no-quarantine` to skip the
-  # Gatekeeper prompt. Verify the published sha256 on the GitHub Release page,
-  # or rebuild from source, before trusting the binary.
+  # Unsigned build (no Developer ID certificate yet). The download carries a
+  # `com.apple.provenance` attribute, so Gatekeeper may block first launch.
+  # If so, run: xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
+  # Verify the published sha256 on the GitHub Release page, or rebuild from
+  # source, before trusting the binary.
   app "ACPControlCenter.app"
 end
