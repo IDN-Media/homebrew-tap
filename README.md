@@ -11,11 +11,10 @@ brew install --cask acp-control-center
 ```
 
 > **Note for unsigned builds**: the app may be blocked by Gatekeeper on first
-> launch. If that happens, clear the download attributes once:
+> launch. If that happens, clear the download attribute once:
 >
 > ```bash
 > xattr -dr com.apple.quarantine /Applications/ACPControlCenter.app
-> xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
 > ```
 
 To update later:

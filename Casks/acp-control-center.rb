@@ -13,9 +13,8 @@ cask "acp-control-center" do
   end
 
   # Unsigned build (no Developer ID certificate yet). Gatekeeper may block
-  # first launch. If so, clear the download attributes once:
+  # first launch. If so, clear the download attribute once:
   #   xattr -dr com.apple.quarantine /Applications/ACPControlCenter.app
-  #   xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
   # Verify the published sha256 on the GitHub Release page, or rebuild from
   # source, before trusting the binary.
   app "ACPControlCenter.app"
