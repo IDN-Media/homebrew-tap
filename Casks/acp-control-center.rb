@@ -12,9 +12,10 @@ cask "acp-control-center" do
     strategy :github_latest
   end
 
-  # Unsigned build (no Developer ID certificate yet). The download carries a
-  # `com.apple.provenance` attribute, so Gatekeeper may block first launch.
-  # If so, run: xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
+  # Unsigned build (no Developer ID certificate yet). Gatekeeper may block
+  # first launch. If so, clear the download attributes once:
+  #   xattr -dr com.apple.quarantine /Applications/ACPControlCenter.app
+  #   xattr -dr com.apple.provenance /Applications/ACPControlCenter.app
   # Verify the published sha256 on the GitHub Release page, or rebuild from
   # source, before trusting the binary.
   app "ACPControlCenter.app"
